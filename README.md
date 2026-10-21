@@ -7,6 +7,8 @@ The maintained game tools are:
 - `/stardew-planner/`: single-sowing crop timing and seed-budget comparison, saved/shareable plans and CSV export.
 - `/terraria-checklist/`: a 24-item pre-Hardmode checklist with named worlds and local JSON backups.
 - `/factory-planner/`: conveyor throughput, belt-tier comparison and outage-buffer recovery, with saved/shareable plans.
+- `/palworld-cake/`: Normal Cake ingredient deficits, flour/wheat milling and immediate/after-milling craftability, with safe shared previews and exports.
+- `/valheim-supplies/`: seven-recipe party supply planner with finished and raw inventory, whole-batch rounding, equal personal packs and shared previews.
 - `/playbook/`: tool and guide directory.
 
 These are unofficial fan tools. They do not read game saves. The model assumptions and source links on each site are part of the product, not optional fine print. Existing ClickDesk and legacy content are preserved separately.

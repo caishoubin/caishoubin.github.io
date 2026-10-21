@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://caishoubin.github.io'
-PREFIXES = ('stardew-planner', 'terraria-checklist', 'factory-planner')
+PREFIXES = ('stardew-planner', 'terraria-checklist', 'factory-planner', 'palworld-cake', 'valheim-supplies')
 PAGES = [ROOT/'index.html', ROOT/'playbook/index.html', ROOT/'404.html']
 PAGES += [p for prefix in PREFIXES for p in (ROOT/prefix).rglob('*.html')]
 errors, checks = [], 0
@@ -69,7 +69,7 @@ for path,page in list(cache.items()):
         check(target.is_file(),f'{rel}: broken local target {href}')
         if target.is_file() and resolved.fragment and target.suffix=='.html':
             other=cache.setdefault(target,Page(target.read_text())) if target not in cache else cache[target]
-            plan_models = {ROOT/'stardew-planner/index.html': ROOT/'stardew-planner/assets/plan.js', ROOT/'factory-planner/index.html': ROOT/'factory-planner/plans.js'}
+            plan_models = {ROOT/'stardew-planner/index.html': ROOT/'stardew-planner/assets/plan.js', ROOT/'factory-planner/index.html': ROOT/'factory-planner/plans.js', ROOT/'palworld-cake/index.html': ROOT/'palworld-cake/plans.js', ROOT/'valheim-supplies/index.html': ROOT/'valheim-supplies/model.js'}
             if resolved.fragment.startswith('plan=') and target in plan_models:
                 result = subprocess.run(['node', '-e', "const api=require(process.argv[1]); if(!(api.fromHash||api.parseHash) (process.argv[2])) process.exit(1);", str(plan_models[target]), '#'+resolved.fragment], capture_output=True, text=True)
                 check(result.returncode == 0, f'{rel}: invalid shared-plan link {href}')
